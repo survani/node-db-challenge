@@ -16,6 +16,16 @@ exports.up = function (knex) {
       tbl.string("task_description", 128).notNullable();
       tbl.string("task_notes", 128);
       tbl.boolean("task_completed").notNullable().defaultTo(false);
+      //This will be one of my connection. "Foreign Key"
+      //Will test this out, but I belive this should be good.
+      tbl
+        .integer("project_id")
+        .unsigned()
+        .notNullable()
+        .references("id")
+        .inTable("project")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
     });
 };
 
