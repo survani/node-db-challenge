@@ -51,7 +51,11 @@ exports.up = function (knex) {
   );
 };
 
+// I did this to follow a down to up format when dropping the tables.
 exports.down = function (knex) {
-  //Will add this once I am done with the creation of the tables above
-  //still missing foreign keys here. Looking to see how to organize them...
+  return knex.schema
+    .dropTableIfExists("project_resource")
+    .dropTableIfExists("task")
+    .dropTableIfExists("resource")
+    .dropTableIfExists("project");
 };
