@@ -45,4 +45,14 @@ router.post("/resource", async (req, res) => {
   }
 });
 
+//get + post task requests
+router.get("/:id/task", async (req, res) => {
+  const allTask = await projectHelper.findTask(req.params.id);
+  try {
+    res.status(200).json(allTask);
+  } catch (error) {
+    res.status(500).json("Big error");
+  }
+});
+
 module.exports = router;
