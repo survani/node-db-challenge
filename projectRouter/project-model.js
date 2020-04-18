@@ -9,7 +9,12 @@ function addProject(body) {
   return db("project").insert(body);
 }
 
+function findResource() {
+  return db("resource");
+}
+
 module.exports = {
   findProject,
   addProject,
+  findResource,
 };

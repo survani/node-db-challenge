@@ -5,7 +5,7 @@ const projectHelper = require("./project-model");
 
 const router = express.Router();
 
-//get request to obtain all projects
+//get + post projects requests
 router.get("/", async (req, res) => {
   const allProjects = await projectHelper.findProject();
   try {
@@ -22,6 +22,16 @@ router.post("/", async (req, res) => {
     res.status(201).json(addProjects);
   } catch (error) {
     res.status(500).json("error");
+  }
+});
+
+//get + post resource requests
+router.get("/resource", async (req, res) => {
+  const allResources = await projectHelper.findResource();
+  try {
+    res.status(200).json(allResources);
+  } catch (error) {
+    res.status(500).json("Big error");
   }
 });
 
