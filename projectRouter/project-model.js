@@ -5,6 +5,11 @@ function findProject() {
   return db("project");
 }
 
+function addProject(body) {
+  return db("project").insert(body);
+}
+
 module.exports = {
   findProject,
+  addProject,
 };
