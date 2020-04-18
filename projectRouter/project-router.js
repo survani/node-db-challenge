@@ -55,4 +55,14 @@ router.get("/:id/task", async (req, res) => {
   }
 });
 
+router.post("/:id/task", async (req, res, next) => {
+  const allTheInfoOfTask = { ...req.body, project_id: req.params.id };
+  const addTasks = await projectHelper.addTask(allTheInfoOfTask);
+  try {
+    res.status(201).json(addTasks);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

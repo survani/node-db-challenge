@@ -24,10 +24,15 @@ function findTask(taskId) {
     .select("project.project_name", "project.project_description", "task.*");
 }
 
+function addTask(task) {
+  return db("task").insert(task, "id");
+}
+
 module.exports = {
   findProject,
   addProject,
   findResource,
   addResource,
   findTask,
+  addTask,
 };
