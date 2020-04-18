@@ -13,8 +13,13 @@ function findResource() {
   return db("resource");
 }
 
+function addResource(body) {
+  return db("resource").insert(body);
+}
+
 module.exports = {
   findProject,
   addProject,
   findResource,
+  addResource,
 };

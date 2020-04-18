@@ -35,4 +35,14 @@ router.get("/resource", async (req, res) => {
   }
 });
 
+router.post("/resource", async (req, res) => {
+  const changes = req.body;
+  const addResource = await projectHelper.addResource(changes);
+  try {
+    res.status(201).json(addResource);
+  } catch (error) {
+    res.status(500).json("error");
+  }
+});
+
 module.exports = router;
