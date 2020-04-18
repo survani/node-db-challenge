@@ -1,7 +1,7 @@
 const express = require("express");
 const helmet = require("helmet");
 
-const projectRouter = require("Will set this later when router is ready");
+const projectRouter = require("./projectRouter/project-router");
 
 const server = express();
 
